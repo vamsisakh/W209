@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Page Template</title>
+        <script type="text/javascript" src="d3/d3.js"></script>
+    	<style>
+	.bar {
+    	display: inline-block;
+    	width: 20px;
+	margin-right:2px;
+	margin-top:2px;
+    	height: 75px;   /* We'll override height later */
+    	background-color: teal;}
+	
+	.axis {
+	margin-top:1px;
+	margin-left:350px;
+	}
+	</style>
+	</head>
+    <body>
+        <script type="text/javascript">
+	var dataset = [ 0.118, 0.141, 0.107, 0.144, 0.164, 0.031, 0.139, 0.151,0.106,0.221,0.204,0.091,0.103,0.184,0.192,0.152,0.146,0.088,0.228,0.160,0.107,0.165,0.107,0.165,0.217,0.116,0.152,0.185,0.133,0.160,0.182,0.091,0.124,0.151,0.073,0.154,0.180,0.039,0.126,0.190,0.132,0.143,0.197,0.343,0.178,0.183,0.040,0.021,0.166]
+	d3.select("body").selectAll("p")
+	.data(dataset)
+	.enter()
+	.append("p")
+	.attr("class", "bar")
+	.style("height",function(d)
+	{
+	var barHeight = d*1000;
+	return barHeight + "px";
+	});
+	d3.select("body")
+	.append("p")
+	.attr("class","axis")
+	.text("Monthly Dividend yield of GYLD from June 2012 to June 2016 ")
+	.style("color", "red");     // set the fill colour 
+
+	</script>
+    </body>
+</html>
